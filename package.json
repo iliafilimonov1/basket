@@ -24,6 +24,7 @@
   },
   "scripts": {
     "dev": "vite",
+    "server": "json-server --watch db.json",
     "build": "vite build",
     "lint": "eslint src/**/*.js",
     "lint:fix": "eslint --fix src/**/*.js",
