@@ -1,5 +1,8 @@
+@import "tailwindcss";
 @import '../css/fonts.css';
-@import '../css/counter.css';
+@import '../css/components/counter.css';
+@import '../css/components/notification.css';
+@import '../css/components/sidebar.css';
 
 body {
   font-family: 'Messina Sans', sans-serif;

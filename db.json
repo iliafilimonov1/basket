@@ -2,43 +2,51 @@
   "products": [
     {
       "id": "1",
-      "name": "Armchair",
-      "category": "Chair",
-      "rating": "4.9",
-      "price": "50.2",
-      "imgSrc": "/images/help-image-1.jpg"
+      "name": "Диван Stockholm",
+      "category": "Диваны",
+      "rating": "4.8",
+      "price": "499.99",
+      "imgSrc": "/public/images/help-image-1.jpg"
     },
     {
       "id": "2",
-      "name": "Bed",
-      "category": "Bed",
-      "rating": "3.0",
-      "price": "102.10",
-      "imgSrc": "/images/help-image-2.jpg"
+      "name": "Кресло Poäng",
+      "category": "Кресла",
+      "rating": "4.6",
+      "price": "129.90",
+      "imgSrc": "/public/images/help-image-2.jpg"
     },
     {
       "id": "3",
-      "name": "Bench",
-      "category": "Bench",
-      "rating": "4.9",
-      "price": "15",
-      "imgSrc": "/images/help-image-3.jpg"
+      "name": "Кровать Malm",
+      "category": "Кровати",
+      "rating": "4.7",
+      "price": "349.00",
+      "imgSrc": "/public/images/help-image-3.jpg"
     },
     {
       "id": "4",
-      "name": "Bed 2",
-      "category": "Bed 2",
-      "rating": "3.0",
-      "price": "102.10",
-      "imgSrc": "/images/help-image-4.jpg"
+      "name": "Стол LACK",
+      "category": "Столы",
+      "rating": "4.3",
+      "price": "39.99",
+      "imgSrc": "/public/images/help-image-4.jpg"
     },
     {
-      "name": "Тестовый товар",
-      "category": "Тестовая категория",
-      "rating": "100",
-      "price": "300",
-      "imgSrc": "https://s1.1zoom.ru/big7/285/Christmas_Holidays_Spruce_Balls_Snowmen_555646_2560x1706.jpg",
-      "id": "ySvhgzJ"
+      "id": "5",
+      "name": "Шкаф PAX",
+      "category": "Шкафы",
+      "rating": "4.9",
+      "price": "599.00",
+      "imgSrc": "/public/images/help-image-5.jpg"
+    },
+    {
+      "id": "6",
+      "name": "Тумба Hemnes",
+      "category": "Тумбы",
+      "rating": "4.5",
+      "price": "89.50",
+      "imgSrc": "/public/images/help-image-6.jpg"
     }
   ]
 }
