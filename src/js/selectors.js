@@ -9,4 +9,8 @@ export const SELECTORS = {
   counterBtnDown: document.querySelector('.counter__btn--down'),
   /* Кнопка добавления товара в корзину */
   addToCartBtn: document.querySelector('.btn-primary'),
+  /** Форма добавления товара */
+  addProductForm: document.querySelector('#add-form'),
+  /** Контейнер для отрисовки карточек */
+  productsList: document.querySelector('.products-list'),
 }
