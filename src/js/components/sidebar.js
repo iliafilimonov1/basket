@@ -6,7 +6,7 @@ export class Sidebar {
     @param {string} openBtnSelector - Селектор кнопки для открытия боковой панели.
     @param {string} align - Позиционирование компонента ('left' или 'right').
     */
-  constructor(sidebarSelector, openBtnSelector, align = 'left') {
+  constructor(sidebarSelector, openBtnSelector, align = 'right') {
     this.sidebar = document.querySelector(sidebarSelector)
     this.openBtn = document.querySelector(openBtnSelector)
     this.closeBtn = this.sidebar.querySelector('#close-sidebar')

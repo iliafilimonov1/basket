@@ -1,11 +1,19 @@
 import { Sidebar } from './components/sidebar.js'
-import { addProductToPage } from './handlers.js'
-import { loadJSON } from './api.js'
+import { getProducts } from './api.js'
+import { generateTemplate } from './components/card.js'
+import { SELECTORS } from './selectors.js'
+import { createNewProduct } from './handlers.js'
 
-// подгрузка данных при загрузке страницы
-window.addEventListener('DOMContentLoaded', () => {
-  loadJSON()
-  addProductToPage()
-  // ToDo: Должен уметь показываться/скрываться программно
+window.addEventListener('DOMContentLoaded', async () => {
+  // Получение продуктов
+  const products = await getProducts()
+
+  // Формирование шаблона
+  generateTemplate(products, SELECTORS?.productsList)
+
+  // Вызываем сайдбар
   new Sidebar('#sidebar', '#sidebar-open')
+
+  // Навешиваем обработчик на форму добавления товара
+  createNewProduct()
 })

@@ -1,16 +1,16 @@
 import { SELECTORS } from './selectors'
 import { createProduct } from './api'
 import { Notification } from './components/notification'
+import { generateTemplate } from './components/card'
 
 // Функция добавления продукта через форму
-export const addProductToPage = () => {
+export const createNewProduct = async () => {
   if (SELECTORS?.addProductForm) {
-    SELECTORS?.addProductForm?.addEventListener('submit', (event) => {
+    SELECTORS?.addProductForm?.addEventListener('submit', async (event) => {
       event.preventDefault()
-      // Достаем форму
       const form = event.target
 
-      const values = {
+      const product = {
         name: form.name.value,
         rating: Number.parseInt(form.rating.value, 10),
         price: Number.parseInt(form.price.value, 10),
@@ -19,9 +19,13 @@ export const addProductToPage = () => {
         description: form.description.value,
       }
 
-      // Создаем продукт
-      const result = createProduct(values)
+      // Создаём продукт
+      const newProduct = await createProduct(product)
 
+      // Вставляем карточку на главную страницу
+      generateTemplate(newProduct, SELECTORS?.productsList)
+
+      form.reset()
       new Notification({ title: 'Добавление товара', subtitle: 'Товар был добавлен успешно' })
     })
   }
