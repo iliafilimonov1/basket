@@ -17,3 +17,9 @@ window.addEventListener('DOMContentLoaded', async () => {
   // Навешиваем обработчик на форму добавления товара
   createNewProduct()
 })
+
+// Домашка здесь от 17.07
+// на лекции сделали добавление товара через форму
+// Отрефакторили код. Необходимо сделать так, чтобы по клику на отдельно взятую карточку она была отрисована в Элементе с id basket-list
+
+console.log('basket-list', SELECTORS.basketList)

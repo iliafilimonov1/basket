@@ -9,7 +9,9 @@ export const generateTemplate = (products, parentElement) => {
   if (products && Array.isArray(products)) {
     products.forEach((product) => {
       template += `
-    <div class="w-full max-w-sm mb-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+    <div id=${
+      product?.id
+    } class="w-full max-w-sm mb-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
         <a href="#" class="flex max-h-72">
             <img class="p-4 rounded-lg object-cover" src="${product?.imgSrc ?? ''}" alt="${
         product?.name ?? 'Изображение отсутствует'
@@ -33,16 +35,37 @@ export const generateTemplate = (products, parentElement) => {
                     }</span>
                 </div>
             </div>
-            <div class="flex items-center justify-between">
+            <div class="flex items-center justify-between mb-3">
                 <span class="text-3xl font-bold text-gray-900 dark:text-white">$${
                   product.price ?? 'Цена отсутствует'
                 }</span>
             </div>
+
+            <button type="button" class="basket-btn text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Add to basket</button>
         </div>
     </div>
   `
     })
   }
 
-  return parentElement.insertAdjacentHTML('beforeend', template)
+  parentElement.insertAdjacentHTML('beforeend', template)
+
+  // Функция получения каждой кнопки в карточке
+  const allBtns = document?.querySelectorAll('.basket-btn')
+
+  if (allBtns) {
+    allBtns?.forEach((button) => {
+      button?.addEventListener('click', (event) => {
+        // находим id карточки в иерархии DOM
+        const carId = event?.target?.parentElement?.parentElement?.id
+
+        // Находим элемент с id в массиве  products
+        const product = products?.find((element) => element?.id === carId)
+        console.log('найденный эл-т', product)
+
+        // Вызов функции для отрисовки полученного элемента на странице
+        return product
+      })
+    })
+  }
 }

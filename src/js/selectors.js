@@ -13,4 +13,6 @@ export const SELECTORS = {
   addProductForm: document.querySelector('#add-form'),
   /** Контейнер для отрисовки карточек */
   productsList: document.querySelector('.products-list'),
+  /** Контейнер для отрисовки карточек в корзине */
+  basketList: document.querySelector('#basket-list'),
 }
