@@ -1,7 +1,6 @@
-import { SELECTORS } from './selectors'
+import { SELECTORS } from './global'
 import { createProduct } from './api'
-import { Notification } from './components/notification'
-import { generateTemplate } from './components/card'
+import { generateTemplate } from './templates'
 
 // Функция добавления продукта через форму
 export const createNewProduct = async () => {
@@ -26,7 +25,6 @@ export const createNewProduct = async () => {
       generateTemplate(newProduct, SELECTORS?.productsList)
 
       form.reset()
-      new Notification({ title: 'Добавление товара', subtitle: 'Товар был добавлен успешно' })
     })
   }
 }
