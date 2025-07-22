@@ -1,17 +1,4 @@
-import { SELECTORS, PRODUCTS_IN_BASKET } from './global'
-import { Notification } from './components/notification'
-
-// Функция добавления товара в корзину
-function addToBasket(product) {
-  const exists = PRODUCTS_IN_BASKET?.some((item) => item?.id === product?.id)
-  if (!exists) PRODUCTS_IN_BASKET.push(product)
-  renderBasket(PRODUCTS_IN_BASKET, SELECTORS?.basketList)
-
-  new Notification({
-    title: 'Добавление товара',
-    subtitle: 'Товар добавлен в корзину',
-  })
-}
+import { addToBasket, removeFromBasket } from './handlers'
 
 /**
  * Рендерит корзину товаров
@@ -71,7 +58,8 @@ export const renderBasket = (basketProducts, basketElement) => {
     button.addEventListener('click', (event) => {
       const card = event.target.closest('[data-id]')
       const carId = card?.getAttribute('data-id')
-      console.log('carId', carId)
+
+      if (carId) removeFromBasket(carId)
     })
   })
 }
