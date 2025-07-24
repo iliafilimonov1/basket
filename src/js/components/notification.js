@@ -6,11 +6,13 @@ export class Notification {
    * @param {string} options.variant - Вариант уведомления ('info', 'warning', 'error' 'success').
    * @param {string} [options.title] - Заголовок уведомления.
    * @param {string} [options.subtitle] - Подзаголовок уведомления.
+   * @param {string} [options.align] - Выравнивание уведомления ('right', 'left').
    */
-  constructor({ variant = 'info', title, subtitle }) {
+  constructor({ variant = 'info', title, subtitle, align = 'right'}) {
     this.variant = variant
     this.title = title || 'Notification title.'
     this.subtitle = subtitle || 'Subtitle text.'
+    this.align = align
     this.container = this.getTemplate()
     this.addToDOMAfterDelay()
     this.addCloseButtonHandler()
@@ -22,7 +24,7 @@ export class Notification {
    */
   getTemplate() {
     const template = document.createElement('div')
-    template.classList.add('notification', `notification-${this.variant}`)
+    template.classList.add('notification', `notification-${this.variant}`, this.getAlignClass())
 
     template.innerHTML = `
       <div class="notification-icon">
@@ -40,6 +42,18 @@ export class Notification {
     `
 
     return template
+  }
+
+  /**
+   * Позиция компонента.
+   */
+  getAlignClass() {
+    switch (this.align) {
+      case 'right':
+        return 'notification-right'
+      case 'left':
+        return 'notification-left'
+    }
   }
 
   /**
@@ -69,9 +83,9 @@ export class Notification {
       this.adjustPosition() // Позиционирует уведомление на экране
       document.body.appendChild(this.container) // Добавляет уведомление в тело документа
       Notification.notifications.push(this) // Добавляет уведомление в список активных уведомлений
-      // setTimeout(() => {
-      //   this.closeNotification();
-      // }, 2000);
+      setTimeout(() => {
+        this.closeNotification();
+      }, 3000);
     }, 1000)
   }
 

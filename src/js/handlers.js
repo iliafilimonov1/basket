@@ -53,5 +53,6 @@ export const removeFromBasket = (carId) => {
   new Notification({
     title: 'Удаление товара',
     subtitle: 'Товар удален из корзины',
+    align: 'left',
   })
 }

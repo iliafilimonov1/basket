@@ -14,7 +14,7 @@ export const renderBasket = (basketProducts, basketElement) => {
       template += `
         <div data-id="${
           product?.id
-        }" class="w-full max-w-sm mb-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
+        }" class="basket-card w-full max-w-sm mb-6 bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
           <a href="#" class="flex max-h-72 min-h-72">
             <img class="p-4 rounded-lg object-cover" src="${product?.imgSrc ?? ''}" alt="${
         product?.name ?? 'Изображение отсутствует'

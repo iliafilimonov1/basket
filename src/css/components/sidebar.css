@@ -1,4 +1,5 @@
-#sidebar {
+#sidebar,
+#basket-sidebar {
   position: fixed;
   top: 0;
   right: 0;
@@ -23,19 +24,46 @@
 .sidebar-wrapper {
   background-color: white;
   width: 600px;
-  padding: 20px;
   height: 100vh;
   position: absolute;
   padding: 20px;
   box-shadow: 0 0 10px rgb(0 0 0 / 30%);
 }
 
-#sidebar[data-align='left'] .sidebar-wrapper {
+#basket-sidebar .sidebar-wrapper {
+  width: 900px;
+}
+
+#basket-wrapper {
+  margin: 0;
+  width: 100%;
+  max-width: inherit;
+}
+
+#basket-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  width: 100%;
+  max-width: inherit;
+}
+
+#basket-sidebar .basket-card {
+  max-width: 264px;
+}
+
+#basket-card a {
+  min-height: 200px;
+}
+
+#sidebar[data-align='left'] .sidebar-wrapper,
+#basket-sidebar[data-align='left'] .sidebar-wrapper {
   left: 0;
   transition: right 0.3s ease-in-out;
 }
 
-#sidebar[data-align='right'] .sidebar-wrapper {
+#sidebar[data-align='right'] .sidebar-wrapper,
+#basket-sidebar[data-align='right'] .sidebar-wrapper {
   right: 0;
   transition: right 0.3s ease-in-out;
 }

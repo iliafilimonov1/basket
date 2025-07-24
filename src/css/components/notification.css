@@ -67,3 +67,11 @@
 .notification-success {
   border-left: 4px solid #0cad39;
 }
+
+.notification-right {
+  right: 20px;
+}
+
+.notification-left {
+  left: 20px;
+}
