@@ -34,8 +34,20 @@ export const createNewProduct = async () => {
 
 // Функция добавления товара в корзину
 export const addToBasket = (product) => {
-  const exists = PRODUCTS_IN_BASKET?.some((item) => item?.id === product?.id)
-  if (!exists) PRODUCTS_IN_BASKET.push(product)
+  // Получаем текущие товары из localStorage или из PRODUCTS_IN_BASKET
+  let basket = JSON.parse(localStorage.getItem('products-basket')) || []
+
+  // Проверяем, есть ли уже такой товар
+  const exists = basket.some((item) => item?.id === product?.id)
+  if (!exists) basket.push(product)
+
+  // Обновляем глобальный массив
+  PRODUCTS_IN_BASKET.length = 0
+  PRODUCTS_IN_BASKET.push(...basket)
+
+  // Сохраняем в localStorage
+  localStorage.setItem('products-basket', JSON.stringify(basket))
+
   renderBasket(PRODUCTS_IN_BASKET, SELECTORS?.basketList)
 
   new Notification({

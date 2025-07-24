@@ -6,6 +6,11 @@ import { addToBasket, removeFromBasket } from './handlers'
  * @param {Element} basketElement - Контейнер корзины
  */
 export const renderBasket = (basketProducts, basketElement) => {
+  const basketFromStorage = JSON.parse(localStorage.getItem('products-basket'))
+  if (basketFromStorage) {
+    basketProducts = basketFromStorage
+  }
+
   basketElement.innerHTML = ''
 
   let template = ''

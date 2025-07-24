@@ -1,8 +1,9 @@
 import { Sidebar } from './components/sidebar.js'
 import { getProducts } from './api.js'
 import { generateTemplate } from './templates.js'
-import { SELECTORS } from './global.js'
+import { SELECTORS, PRODUCTS_IN_BASKET } from './global.js'
 import { createNewProduct } from './handlers.js'
+import { renderBasket } from './templates.js'
 
 window.addEventListener('DOMContentLoaded', async () => {
   // Получение продуктов
@@ -10,6 +11,9 @@ window.addEventListener('DOMContentLoaded', async () => {
 
   // Формирование шаблона
   generateTemplate(products, SELECTORS?.productsList)
+
+  // Рендерим корзину
+  renderBasket(PRODUCTS_IN_BASKET, SELECTORS?.basketList)
 
   // Вызываем сайдбар (основной)
   new Sidebar('#sidebar', '#sidebar-open')
